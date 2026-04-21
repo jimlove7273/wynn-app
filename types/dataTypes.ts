@@ -53,33 +53,20 @@ export interface HeaderSkeleton extends EntrySkeletonType {
   };
 }
 
-/**
- * Represents a single link inside a Navigation entry.
- * Contentful API ID: "navigationItem"
- */
-export interface NavigationItemSkeleton extends EntrySkeletonType {
-  contentTypeId: "navigationItem";
-  fields: {
-    label: EntryFieldTypes.Symbol;
-    url: EntryFieldTypes.Symbol;
-  };
-}
-
 export interface NavigationSkeleton extends EntrySkeletonType {
   contentTypeId: "navigation";
   fields: {
     title: EntryFieldTypes.Symbol;
-    links: EntryFieldTypes.Array<
-      EntryFieldTypes.EntryLink<NavigationItemSkeleton>
-    >;
+    /** Array of strings for navigation items */
+    items: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
   };
 }
 
 export interface FooterSkeleton extends EntrySkeletonType {
   contentTypeId: "footer";
   fields: {
-    /** Plain text (or comma-separated) list of footer links */
-    links: EntryFieldTypes.Symbol;
+    /** Array of strings for footer links */
+    links: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
     copyrightText: EntryFieldTypes.Symbol;
   };
 }
@@ -92,10 +79,6 @@ export type HeroEntry = Entry<HeroSkeleton, "WITHOUT_UNRESOLVABLE_LINKS">;
 export type PromoEntry = Entry<PromoSkeleton, "WITHOUT_UNRESOLVABLE_LINKS">;
 export type PageEntry = Entry<PageSkeleton, "WITHOUT_UNRESOLVABLE_LINKS">;
 export type HeaderEntry = Entry<HeaderSkeleton, "WITHOUT_UNRESOLVABLE_LINKS">;
-export type NavigationItemEntry = Entry<
-  NavigationItemSkeleton,
-  "WITHOUT_UNRESOLVABLE_LINKS"
->;
 export type NavigationEntry = Entry<
   NavigationSkeleton,
   "WITHOUT_UNRESOLVABLE_LINKS"
