@@ -20,12 +20,12 @@ export default function NotFound() {
           >
             Go back home
           </Link>
-          <a
-            href="https://www.contentful.com/support/"
+          <Link
+            href="/home"
             className="text-sm font-semibold text-zinc-900 dark:text-zinc-50"
           >
-            Contact support <span aria-hidden="true">&rarr;</span>
-          </a>
+            Go to 2nd Home <span aria-hidden="true">&rarr;</span>
+          </Link>
         </div>
       </div>
     </div>
